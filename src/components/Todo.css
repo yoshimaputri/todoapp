@@ -1,0 +1,15 @@
+.update-btn {
+    background-color: rgb(189, 76, 76);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    padding: 8px 20px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+.btn--primary {
+    background-color: rgb(231, 231, 231);
+}

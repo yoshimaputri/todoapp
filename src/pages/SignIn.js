@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./SignIn.css";
+import Btn from "../components";
 
 const SignIn = () => {
     const [load, setLoad] = useState(false);
@@ -28,10 +29,10 @@ const SignIn = () => {
                         <form>
                             <div className="form-group">
                                 <input
-                                    className="sign-in-form form-truck shadow"
+                                    className="sign-in-form"
                                     type="text"
                                     name="userid"
-                                    placeholder="username"
+                                    placeholder="Username"
                                     autoComplete="username"
                                     onChange={(text) =>
                                         setUser((r) => ({ ...r, username: text.target.value }))
@@ -40,10 +41,10 @@ const SignIn = () => {
                             </div>
                             <div className="form-group">
                                 <input
-                                    className="sign-in-form form-truck shadow"
+                                    className="sign-in-form"
                                     type="password"
                                     name="userid"
-                                    placeholder="password"
+                                    placeholder="Password"
                                     autoComplete="current-password"
                                     onChange={(text) =>
                                         setUser((r) => ({ ...r, password: text.target.value }))
@@ -52,7 +53,6 @@ const SignIn = () => {
                             </div>
 
                             <button
-                                type="button"
                                 onClick={() => handle_login()}
                             >
                                 Sign In
@@ -61,7 +61,7 @@ const SignIn = () => {
                     </div>
                     <div className="login-forgot">
                         <Link to="/sign-up">
-                            <div style={{ color: 'black', paddingTop: '3%' }}>Create an account?</div>
+                            <div style={{ color: 'white', paddingTop: '3%' }}>Create an account?</div>
                         </Link>
                     </div>
                 </div>
