@@ -1,0 +1,50 @@
+.form-input {
+    padding: 10px 20px;
+    margin: 0px 80px 20px 0px;
+    font-size: 16px;
+    border: 2px solid rgb(255, 255, 255);
+    flex-grow: 1;
+    width: 100%;
+}
+
+.form-input::placeholder {
+    color: #b1b1b1;
+}
+
+.form-input[type='checkbox'] {
+    align-content: center;
+    margin: 0px 10px 20px 10px;
+    width: auto;
+}
+
+table {
+    width: 100%;
+}
+
+tr .check {
+    width: 5%;
+    padding-left: 5%;
+    padding-bottom: 6%;
+}
+
+.form-check[type='checkbox'] {
+    vertical-align: middle;
+    align-content: center;
+}
+
+.descCheck p {
+    width: 95%;
+    padding: 0;
+    font-size: 12px;
+}
+
+.counted p {
+    font-size: 12px;
+    text-align: right;
+}
+
+@media screen and (max-width: 820px) {
+    .form-input {
+        width: 100%;
+    }
+}

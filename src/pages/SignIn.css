@@ -1,0 +1,105 @@
+.sign-in {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-items: center;
+    padding-bottom: 29%;
+    /* position: relative; */
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+}
+
+.sign-in .btn--primary {
+    margin-bottom: 5%;
+}
+
+.login-container {
+    width: 100%;
+    text-align: -webkit-center;
+}
+
+.login {
+    /* position: absolute; */
+    margin: 2%;
+    padding: 1%;
+    /* border: 1px solid rgba(150, 150, 150, 0.5); */
+    background-color: rgb(255, 255, 255);
+    width: 25%;
+    margin-bottom: 0;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+}
+
+.login-forgot {
+    padding: 1%;
+    background-color: rgb(255, 255, 255);
+    width: 25%;
+    margin-bottom: 0;
+    margin-top: 0% !important;
+    padding-top: 0;
+    border-bottom-left-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+    background-color: #333;
+    color: white;
+}
+
+.forgot a {
+    color: white;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+}
+
+.sign-in-form {
+    margin-top: 1%;
+    margin-bottom: 2%;
+    width: 100%;
+    border: 1px solid rgba(66, 63, 63, 0.527) !important;
+}
+
+.sign-in-form:hover {
+    border: 1px solid rgb(156, 24, 24) !important;
+}
+
+.updown {
+    display: inline-block;
+}
+
+.login button {
+    width: 100%;
+    padding: 2%;
+}
+
+.forgot {
+    text-align: center;
+    padding-top: 2%;
+    /* color: rgb(252, 252, 252); */
+}
+
+.forgot label {
+    margin-left: 1%;
+    margin-right: 1%;
+    color: rgb(175, 37, 37);
+}
+
+a,
+.form-group label {
+    color: #333;
+    text-decoration: none;
+}
+
+.login .form-group {
+    width: 100%;
+}
+
+@media screen and (max-width: 820px) {
+    .fillform {
+        width: 100%;
+    }
+}
+
+.title-signin {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 3%;
+}
