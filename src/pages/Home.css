@@ -2,3 +2,15 @@
     margin-left: 15%;
     margin-right: 15%;
 }
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h2 {
+    font-family: system-ui !important;
+    font-size: 20px !important;
+}

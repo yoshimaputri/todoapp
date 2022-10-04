@@ -19,7 +19,10 @@ const Home = () => {
             <div className="home-container">
                 {user ? (
                     <div className="signed-in">
-                        <h1>Welcome, {user.username}</h1>
+                        <div className="header">
+                            <h1>My Todo-Plan List</h1>
+                            <h2>Welcome, <b>{user.username}</b> !</h2>
+                        </div>
                         <Todo></Todo>
                     </div>
                 ) : (

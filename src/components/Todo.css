@@ -29,7 +29,7 @@
     border: 1px solid rgb(220, 220, 220);
     list-style-type: none;
     padding: 1%;
-    border-radius: 10px;
+    /* border-radius: 10px; */
 }
 
 .todo-card {
@@ -97,7 +97,18 @@
 }
 
 .inp-text {
-    width: 65% !important;
+    width: 55% !important;
+}
+
+.inp-select {
+    width: 15%;
+}
+
+.no-todo {
+    align-self: center;
+    align-content: center;
+    text-align: center;
+    border: 1px solid rgb(220, 220, 220);
 }
 
 .modal-form {
@@ -125,4 +136,32 @@
     width: 100%;
     padding: 1%;
     margin: 1%;
+}
+
+.todo-list-container button {
+    width: 100%;
+    padding: 2%;
+    margin: 1% 0;
+}
+
+.btn-container button, .btn-del-container button {
+    width: 100%;
+    padding: 2%;
+}
+
+.btn-del-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.btn-del-container a {
+    width: 45%;
+    padding: 2%;
+    margin: 1% 0;
+}
+
+button svg {
+    font-size: 20px;
+    margin: 0 0 0 5px;
 }
