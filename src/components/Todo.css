@@ -13,3 +13,88 @@
 .btn--primary {
     background-color: rgb(231, 231, 231);
 }
+
+.todo-container {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.todo-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 0;
+    border: 1px solid rgb(220, 220, 220);
+    list-style-type: none;
+    padding: 1%;
+    border-radius: 10px;
+}
+
+.todo-card {
+    width: 26%;
+    height: 100%;
+    margin: 1%;
+    padding: 2%;
+    border: 1px solid black;
+    box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.2);
+    border-radius: 1rem;
+}
+
+.todo-card div {
+    width: 100%;
+}
+
+.todo-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    color: rgb(195, 18, 127);
+}
+
+.todo-content {
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    color: rgb(195, 18, 127);
+}
+
+.todo-date {
+    font-size: 0.8rem;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}
+
+.todo-search {
+    display: flex;
+    width: 100%;
+    /* justify-content: space-between !important; */
+    background-color: rgb(11, 68, 112);
+}
+
+.todo-search div select,
+.todo-search div input {
+    padding: 3%;
+}
+
+.todo-search div {
+    width: 15%;
+    /* border: 1px solid black; */
+    margin: 1%;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.todo-search div input {
+    width: 100% !important;
+}
+
+.inp-text {
+    width: 45% !important;
+}

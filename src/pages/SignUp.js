@@ -1,28 +1,37 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./SignUp.css";
+import { v4 as uuidv4 } from "uuid";
 
 const SignUp = () => {
-    const [load, setLoad] = useState(false);
-    const userData = {
-        id: "", //numberiter
-        username: "",
-        password: "",
-    }
     const [user, setUser] = useState(null);
+    const [redirect, setRedirect] = useState(false);
+
+    let navigate = useNavigate();
+    let userLIst = JSON.parse(localStorage.getItem("userList"));
+    if (!userLIst) {
+        userLIst = [];
+    }
 
     const handle_signup = () => {
-        localStorage.getItem("idCount") ? localStorage.setItem("idCount", Number(localStorage.getItem("idCount")) + 1) : localStorage.setItem("idCount", 1);
-        setUser((r) => ({ ...r, id: localStorage.getItem("idCount") }));
-
-        localStorage.setItem("user", JSON.stringify(userData)); // append list of accounts
+        let newUser = {
+            id: uuidv4(),
+            username: user.username,
+            password: user.password,
+        }
+        userLIst.push(newUser);
+        localStorage.setItem("user", JSON.stringify(newUser));
+        localStorage.setItem("userList", JSON.stringify(userLIst));
+        setRedirect(true);
     };
 
     useEffect(() => {
-        window.localStorage.getItem("user") && setLoad(true);
-    }, [user]);
+        if (localStorage.getItem("user")) {
+            navigate("/");
+        }
+    }, [redirect]);
 
-    return load ? (
+    return (
         <>
             <div className="sign-in" >
                 <div className="login-container">
@@ -33,7 +42,7 @@ const SignUp = () => {
                                 <input
                                     className="sign-in-form"
                                     type="text"
-                                    name="userid"
+                                    name="username"
                                     placeholder="Enter a username"
                                     autoComplete="username"
                                     onChange={(text) =>
@@ -45,7 +54,7 @@ const SignUp = () => {
                                 <input
                                     className="sign-in-form"
                                     type="password"
-                                    name="userid"
+                                    name="password"
                                     placeholder="Enter a password"
                                     autoComplete="current-password"
                                     onChange={(text) =>
@@ -64,7 +73,7 @@ const SignUp = () => {
                 </div>
             </div>
         </>
-    ) : null;
+    );
 }
 
 export default SignUp;

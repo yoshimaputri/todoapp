@@ -12,7 +12,7 @@ const Navbar = () => {
     const handleLogout = () => {
         localStorage.removeItem("user");
         setUser(null);
-        Link("/sign-in");
+        window.location.reload();
     };
 
     return (
@@ -23,13 +23,14 @@ const Navbar = () => {
                         Home
                     </Link>
                     {user ? (
-                        <Btn linkto="/sign-in" className="nav-link">
-                            Sign in
-                        </Btn>
-                    ) : (
                         <Btn onClick={() => handleLogout()} className="nav-link">
                             Sign out
                         </Btn>
+                    ) : (
+                        <Btn linkto="/sign-in" className="nav-link">
+                            Sign in
+                        </Btn>
+
                     )}
                 </div>
             </nav>

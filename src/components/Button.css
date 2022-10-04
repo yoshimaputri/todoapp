@@ -1,5 +1,10 @@
 :root {
     --primary: #fff;
+    --yellow: #daa618;
+    --green: #2ecc71;
+    --blue: #3498db;
+    --gray: #787a7a;
+    --red: #e74c3c;
 }
 
 .btn {
@@ -38,7 +43,7 @@
 
 .btn--medium {
     padding: 8px 20px;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .btn--large {
@@ -59,5 +64,75 @@
     transition: all 0.3s ease-out;
     background: rgb(189, 76, 76);
     color: var(--primary);
+    transition: 250ms;
+}
+
+.btn-yellow {
+    background-color: white;
+    color: var(--yellow);
+    font-weight: bolder;
+    border: 1px solid var(--yellow);
+}
+
+.btn-yellow:hover {
+    transition: all 0.3s ease-out;
+    color: white;
+    background-color: var(--yellow);
+    transition: 250ms;
+}
+
+.btn-green {
+    background-color: white;
+    color: var(--green);
+    font-weight: bolder;
+    border: 1px solid var(--green);
+}
+
+.btn-green:hover {
+    transition: all 0.3s ease-out;
+    color: white;
+    background-color: var(--green);
+    transition: 250ms;
+}
+
+.btn-blue {
+    background-color: white;
+    color: var(--blue);
+    font-weight: bolder;
+    border: 1px solid var(--blue);
+}
+
+.btn-blue:hover {
+    transition: all 0.3s ease-out;
+    color: white;
+    background-color: var(--blue);
+    transition: 250ms;
+}
+
+.btn-red {
+    background-color: white;
+    color: var(--red);
+    font-weight: bolder;
+    border: 1px solid var(--red);
+}
+
+.btn-red:hover {
+    transition: all 0.3s ease-out;
+    color: white;
+    background-color: var(--red);
+    transition: 250ms;
+}
+
+.btn-gray {
+    background-color: white;
+    color: var(--gray);
+    font-weight: bolder;
+    border: 1px solid var(--gray);
+}
+
+.btn-gray:hover {
+    transition: all 0.3s ease-out;
+    color: white;
+    background-color: var(--gray);
     transition: 250ms;
 }

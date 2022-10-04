@@ -1,26 +1,36 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./SignIn.css";
-import Btn from "../components";
 
 const SignIn = () => {
-    const [load, setLoad] = useState(false);
-    const userData = {
-        id: "", //numberiter
-        username: "",
-        password: "",
-    }
     const [user, setUser] = useState(null);
+    let navigate = useNavigate();
+    let userList = JSON.parse(localStorage.getItem("userList"));
+    if (!userList) {
+        userList = [];
+    }
 
     const handle_login = () => {
-        localStorage.setItem("user", JSON.stringify(userData));
+        let userData = userList.find((item) => item.username === user.username);
+        if (userData) {
+            if (userData.password === user.password) {
+                localStorage.setItem("user", JSON.stringify(userData));
+                setUser(userData);
+            } else {
+                alert("Wrong password");
+            }
+        } else {
+            alert("User not found");
+        }
     };
 
     useEffect(() => {
-        window.localStorage.getItem("user") && setLoad(true);
+        if (localStorage.getItem("user")) {
+            navigate("/");
+        }
     }, [user]);
 
-    return load ? (
+    return (
         <>
             <div className="sign-in" >
                 <div className="login-container">
@@ -67,7 +77,7 @@ const SignIn = () => {
                 </div>
             </div>
         </>
-    ) : null;
+    );
 }
 
 export default SignIn;
