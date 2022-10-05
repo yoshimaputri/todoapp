@@ -71,4 +71,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ## Screenshot of features
 
-![alt text](https://github.com/yoshimaputri/todoapp/public/screenshot/todo-app1.png?raw=true)
+![alt text](public/screenshot/todo-app1.png?raw=true)
