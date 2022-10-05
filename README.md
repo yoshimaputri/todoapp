@@ -69,6 +69,21 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-## Screenshot of features
+## Screenshot of using features
 
 ![alt text](public/screenshot/todo-app1.png?raw=true)
+![alt text](public/screenshot/todo-app2.png?raw=true)
+![alt text](public/screenshot/todo-app3.png?raw=true)
+![alt text](public/screenshot/todo-app4.png?raw=true)
+![alt text](public/screenshot/todo-app5.png?raw=true)
+![alt text](public/screenshot/todo-app6.png?raw=true)
+![alt text](public/screenshot/todo-app7.png?raw=true)
+![alt text](public/screenshot/todo-app8.png?raw=true)
+![alt text](public/screenshot/todo-app9.png?raw=true)
+![alt text](public/screenshot/todo-app10.png?raw=true)
+![alt text](public/screenshot/todo-app11.png?raw=true)
+![alt text](public/screenshot/todo-app12.png?raw=true)
+![alt text](public/screenshot/todo-app13.png?raw=true)
+![alt text](public/screenshot/todo-app14.png?raw=true)
+![alt text](public/screenshot/todo-app15.png?raw=true)
+![alt text](public/screenshot/todo-app16.png?raw=true)
