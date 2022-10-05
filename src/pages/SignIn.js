@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./SignIn.css";
+import "./Home.css";
+import Btn from "../components/Button";
 
 const SignIn = () => {
     const [user, setUser] = useState(null);
@@ -62,16 +64,16 @@ const SignIn = () => {
                                 />
                             </div>
 
-                            <button
+                            <Btn buttonStyle='btn-red'
                                 onClick={() => handle_login()}
                             >
                                 Sign In
-                            </button>
+                            </Btn>
                         </form>
                     </div>
                     <div className="login-forgot">
                         <Link to="/sign-up">
-                            <div style={{ color: 'white', paddingTop: '3%' }}>Create an account?</div>
+                            Create an account?
                         </Link>
                     </div>
                 </div>

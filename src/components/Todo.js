@@ -39,10 +39,12 @@ const Todo = () => {
 
     const handleCloseForm = () => {
         openForm(false);
+        setTodo((r) => ({ ...r, id: "", title: "", contents: "", remindAt: "" }));
     };
 
     const handleCloseConfirm = () => {
         openConfirm(false);
+        setTodo((r) => ({ ...r, id: "", title: "", contents: "", remindAt: "" }));
     };
 
     const [todo, setTodo] = useState({
@@ -85,10 +87,13 @@ const Todo = () => {
     };
 
     const handle_create = () => {
-        setLoaded(false);
-        addTodo(todo.title, todo.contents, todo.remindAt);
-        openForm(false);
-        window.location.reload();
+        if (todo.title === "" || todo.contents === "" || todo.remindAt === "") {
+            alert("Please fill all fields");
+        } else {
+            addTodo(todo.title, todo.contents, todo.remindAt);
+            openForm(false);
+            window.location.reload();
+        }
     };
 
     const handle_update = () => {
@@ -132,13 +137,13 @@ const Todo = () => {
 
     const load_todo = () => {
         console.log(userTodoList)
-        const sortedTodo = userTodoList.sort((a, b) => moment(a.createdAt).format('YYYYMMDD') - moment(b.createdAt).format('YYYYMMDD'));
+        const sortedTodo = userTodoList.sort((a, b) => a.updatedAt - b.updatedAt);
 
         return userTodoList !== [] ? (
             <ul className="todo-list">
                 {/* a card component for todo */}
                 {sortedTodo.reverse().map((todo, _) => (
-                    todo.deletedAt !== null ? (
+                    todo.deletedAt === null ? (
                         <li key={todo.id} className="todo-card">
                             <div>
                                 {/* <div>ID: {todo.id}</div> */}
@@ -157,26 +162,29 @@ const Todo = () => {
                                 }}>DELETE <AiFillDelete /></Btn>
                             </div>
                         </li>
-
-
-                        // <li key={todo.id} className="todo-card">
-                        //     <div style={{ color: "gray" }}>
-                        //         {/* <div>ID: {todo.id}</div> */}
-                        //         <div className="todo-title">{todo.title}</div>
-                        //         <div className="todo-content"><i>Contents:</i> {todo.contents}</div>
-                        //         <div className="todo-date"><b>Reminder at:</b> {moment(todo.remindAt).format('MM/DD/YYYY, h:mm a')}</div>
-                        //         <div className="todo-date"><i>Created at: {moment(todo.createdAt).format('MM/DD/YYYY, h:mm a')}</i></div>
-                        //         <div className="todo-date">Updated at: {moment(todo.updatedAt).format('MM/DD/YYYY, h:mm a')}</div>
-                        //         <div className="todo-date">Deleted at: {moment(todo.deletedAt).format('MM/DD/YYYY, h:mm a')}</div>
-                        //     </div>
-                        // </li>
+                    ) : showTrash ? (
+                        <li key={todo.id} className="todo-card">
+                            <div style={{ color: "gray" }}>
+                                {/* <div>ID: {todo.id}</div> */}
+                                <div className="todo-title">{todo.title}</div>
+                                <div className="todo-content"><i>Contents:</i> {todo.contents}</div>
+                                <div className="todo-date"><b>Reminder at:</b> {moment(todo.remindAt).format('MM/DD/YYYY, h:mm a')}</div>
+                                <div className="todo-date"><i>Created at: {moment(todo.createdAt).format('MM/DD/YYYY, h:mm a')}</i></div>
+                                <div className="todo-date">Updated at: {moment(todo.updatedAt).format('MM/DD/YYYY, h:mm a')}</div>
+                                <div className="todo-date">Deleted at: {moment(todo.deletedAt).format('MM/DD/YYYY, h:mm a')}</div>
+                            </div>
+                        </li>
                     ) : (
                         null
                     )
                 ))}
-                <Btn buttonStyle='btn-gray' className="trash" onClick={() => setShowTrash(!showTrash)}>
-                    View My Bin <AiOutlineDelete />
-                </Btn>
+                {showTrash ? (
+                    <Btn buttonStyle='btn-gray' className="trash" onClick={() => setShowTrash(!showTrash)}>
+                        Hidden My Bin <AiOutlineDelete />
+                    </Btn>) : (
+                    <Btn buttonStyle='btn-gray' className="trash" onClick={() => setShowTrash(!showTrash)}>
+                        View My Bin <AiOutlineDelete />
+                    </Btn>)}
             </ul>
         ) : (
             false
@@ -233,14 +241,20 @@ const Todo = () => {
                             <h2 id="transition-modal-title">Create Todo Item</h2>
                         )}
                         <div className="inp-modal">
-                            <input type="text" placeholder="Title" value={todo ? todo.title : null} onChange={(e) => setTodo((r) => ({ ...r, title: e.target.value }))} />
-                            <input type="text" placeholder="Contents" value={todo ? todo.contents : null} onChange={(e) => setTodo((r) => ({ ...r, contents: e.target.value }))} />
-                            <input type="datetime-local" value={todo ? todo.remindAt : null} onChange={(e) => setTodo((r) => ({ ...r, remindAt: e.target.value }))} />
+                            <input type="text" placeholder="Title" value={todo ? todo.title : null} onChange={(e) => setTodo((r) => ({ ...r, title: e.target.value }))} required />
+                            <input type="text" placeholder="Contents" value={todo ? todo.contents : null} onChange={(e) => setTodo((r) => ({ ...r, contents: e.target.value }))} required />
+                            <input type="datetime-local" value={todo ? todo.remindAt : null} onChange={(e) => setTodo((r) => ({ ...r, remindAt: e.target.value }))} required />
                         </div>
                         {todo.id ? (
-                            <Btn buttonStyle={'btn-blue'} onClick={() => handle_update()}>SUBMIT <IoCreateOutline /></Btn>
+                            <div className="btn-del-container">
+                                <Btn buttonStyle={'btn-blue'} onClick={() => handle_update()}>SUBMIT <IoCreateOutline /></Btn>
+                                <Btn buttonStyle={'btn-gray'} onClick={() => handleCloseForm()}>CANCEL <GiCancel /></Btn>
+                            </div>
                         ) : (
-                            <Btn buttonStyle={'btn-blue'} onClick={() => handle_create()}>CREATE <VscDiffAdded /></Btn>
+                            <div className="btn-del-container">
+                                <Btn buttonStyle={'btn-blue'} onClick={() => handle_create()}>CREATE <VscDiffAdded /></Btn>
+                                <Btn buttonStyle={'btn-gray'} onClick={() => handleCloseForm()}>CANCEL <GiCancel /></Btn>
+                            </div>
                         )}
 
                     </div>

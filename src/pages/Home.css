@@ -14,3 +14,31 @@
     font-family: system-ui !important;
     font-size: 20px !important;
 }
+
+.not-signed-in {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2%;
+}
+
+.not-signed-in .login-forgot {
+    width: fit-content;
+    padding: 1% 2%;
+    font-size: large;
+}
+
+.not-signed-in .login-forgot a {
+    text-decoration: none;
+    color: white;
+}
+
+.not-signed-in .login-forgot:hover {
+    background-color: rgb(220, 220, 220);
+    font-weight: bolder;
+}
+
+.not-signed-in .login-forgot:hover a {
+    color: black;
+}

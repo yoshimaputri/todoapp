@@ -27,6 +27,33 @@
     justify-content: center;
 }
 
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2%;
+}
+
+.login-container .login-forgot {
+    width: fit-content;
+    padding: 1% 2%;
+    font-size: 13px;
+}
+
+.login-container .login-forgot a {
+    text-decoration: none;
+    color: white;
+}
+
+.login-container .login-forgot:hover {
+    background-color: rgb(220, 220, 220);
+    font-weight: bolder;
+}
+
+.login-container .login-forgot:hover a {
+    color: black;
+}
 
 .login {
     /* position: absolute; */

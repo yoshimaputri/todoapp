@@ -23,12 +23,12 @@ const Navbar = () => {
                         Home
                     </Link>
                     {user ? (
-                        <Btn onClick={() => handleLogout()} className="nav-link">
-                            Sign out
+                        <Btn buttonStyle='btn-red' onClick={() => handleLogout()} className="nav-link">
+                            SIGN OUT
                         </Btn>
                     ) : (
-                        <Btn linkto="/sign-in" className="nav-link">
-                            Sign in
+                        <Btn buttonStyle='btn-blue' linkto="/sign-in" className="nav-link">
+                            SIGN IN
                         </Btn>
 
                     )}

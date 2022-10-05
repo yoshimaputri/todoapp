@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./SignUp.css";
 import { v4 as uuidv4 } from "uuid";
+import Btn from "../components/Button";
 
 const SignUp = () => {
     const [user, setUser] = useState(null);
@@ -14,15 +15,21 @@ const SignUp = () => {
     }
 
     const handle_signup = () => {
-        let newUser = {
-            id: uuidv4(),
-            username: user.username,
-            password: user.password,
+        if (user) {
+            if (user.username && user.password) {
+                let newUser = {
+                    id: uuidv4(),
+                    username: user.username,
+                    password: user.password,
+                }
+                userLIst.push(newUser);
+                localStorage.setItem("user", JSON.stringify(newUser));
+                localStorage.setItem("userList", JSON.stringify(userLIst));
+                setRedirect(true);
+            } else {
+                alert("Please fill all the fields");
+            }
         }
-        userLIst.push(newUser);
-        localStorage.setItem("user", JSON.stringify(newUser));
-        localStorage.setItem("userList", JSON.stringify(userLIst));
-        setRedirect(true);
     };
 
     useEffect(() => {
@@ -63,11 +70,11 @@ const SignUp = () => {
                                 />
                             </div>
 
-                            <button
+                            <Btn buttonStyle='btn-red'
                                 onClick={() => handle_signup()}
                             >
                                 Sign Up
-                            </button>
+                            </Btn>
                         </form>
                     </div>
                 </div>
