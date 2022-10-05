@@ -243,6 +243,7 @@ const Todo = () => {
                         <div className="inp-modal">
                             <input type="text" placeholder="Title" value={todo ? todo.title : null} onChange={(e) => setTodo((r) => ({ ...r, title: e.target.value }))} required />
                             <input type="text" placeholder="Contents" value={todo ? todo.contents : null} onChange={(e) => setTodo((r) => ({ ...r, contents: e.target.value }))} required />
+                            <div>Remind at:</div>
                             <input type="datetime-local" value={todo ? todo.remindAt : null} onChange={(e) => setTodo((r) => ({ ...r, remindAt: e.target.value }))} required />
                         </div>
                         {todo.id ? (
